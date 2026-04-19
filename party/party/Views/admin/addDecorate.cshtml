@@ -1,0 +1,56 @@
+﻿@model party.Models.decoration
+@{
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+
+<hr />
+<div id="events" class="events-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                @*<h1 align="center">@Model.CoorName</h1>*@
+                <div class="title-box">
+                    @using (Html.BeginForm("addDecorate", "admin", FormMethod.Post, new { name = "sg", enctype = "multipart/form-data" }))
+                    {
+                        @*@Html.HiddenFor(x => x.CoorName)*@
+                        @Html.HiddenFor(x => x.CoorId)
+
+                    <form>
+                        @if (TempData["Message"] != null)
+                        {
+                            <div class="alert alert-danger">
+                                <p style="color:red">@TempData["Message"]</p>
+                            </div>
+                        }
+
+                        <div class="mb-3">
+                            <h3 align="right">الديكور</h3>
+                            <input name="decoreName" dir="rtl" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <h3 align="right">الوصف</h3>
+                            <input name="des" dir="rtl" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <h3 align="right">السعر</h3>
+                            <input name="cost" dir="rtl" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <h3 align="right">الصورة الاولى</h3>
+                            <input class="form-control" dir="ltr" type="file" name="imgfile" />
+                        </div>
+                        <div class="mb-3">
+                            <h3 align="right"> الصورة الثانية</h3>
+                            <input class="form-control" dir="ltr" type="file" name="imgfileone" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">حفظ</button>
+
+
+                    </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

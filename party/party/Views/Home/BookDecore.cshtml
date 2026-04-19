@@ -1,0 +1,59 @@
+﻿@model party.Models.RequestModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<hr />
+<div id="events" class="events-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-box">
+                    @using (Html.BeginForm("BookDecore", "Home", FormMethod.Post, new { name = "sg", enctype = "multipart/form-data" }))
+                    {
+                        if (TempData["Message"] != null)
+                        {
+                            <div class="alert alert-danger">
+                                <p style="color:red">@TempData["Message"]</p>
+                            </div>
+                        }
+
+                        @Html.HiddenFor(x => x.decoreId)
+                            <form>
+
+                                <div class="mb-3">
+                                    <h3 align="right">الاسم</h3>
+                                    <input name="ClientName" dir="rtl" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3">
+                                    <h3 align="right">رقم الهاتف للتواصل</h3>
+                                    <input name="ClientPhone" dir="rtl" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3">
+                                    <h3 align="right">العنوان</h3>
+                                    <input name="ClientAdress" dir="rtl" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+
+                                <div class="mb-3">
+                                    <h3 align="right">اضافة او ملحوظة على الديكور</h3>
+                                    <input name="des" dir="rtl" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3">
+                                    <h3 align="right">تاريخ المناسبة</h3>
+                                    <input name="date" dir="rtl" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+
+
+
+                                <button type="submit" class="btn btn-primary">ارسال البيانات</button>
+
+
+                            </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

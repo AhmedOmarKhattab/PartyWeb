@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+    <EntitySetMapping Name="coordinators">
+      <EntityTypeMapping TypeName="DatabaseModel.coordinator">
+        <MappingFragment StoreEntitySet="coordinator">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="decorations">
+      <EntityTypeMapping TypeName="DatabaseModel.decoration">
+        <MappingFragment StoreEntitySet="decorations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="decoreName" ColumnName="decoreName" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="des" ColumnName="des" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="CoorId" ColumnName="CoorId" />
+          <ScalarProperty Name="imageTwo" ColumnName="imageTwo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="DatabaseModel.Request">
+        <MappingFragment StoreEntitySet="Request">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="ClientPhone" ColumnName="ClientPhone" />
+          <ScalarProperty Name="ClientAdress" ColumnName="ClientAdress" />
+          <ScalarProperty Name="decoreId" ColumnName="decoreId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="monsba" ColumnName="monsba" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialRequests">
+      <EntityTypeMapping TypeName="DatabaseModel.SpecialRequest">
+        <MappingFragment StoreEntitySet="SpecialRequest">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="ClientPhone" ColumnName="ClientPhone" />
+          <ScalarProperty Name="ClientAdress" ColumnName="ClientAdress" />
+          <ScalarProperty Name="monsba" ColumnName="monsba" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="des" ColumnName="des" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="CoorId" ColumnName="CoorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

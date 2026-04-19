@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="coordinator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="decorations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="decoreName" Type="nvarchar" MaxLength="50" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="des" Type="nvarchar(max)" />
+    <Property Name="cost" Type="nvarchar" MaxLength="50" />
+    <Property Name="CoorId" Type="int" />
+    <Property Name="imageTwo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientAdress" Type="nvarchar" MaxLength="50" />
+    <Property Name="decoreId" Type="int" />
+    <Property Name="date" Type="nvarchar" MaxLength="50" />
+    <Property Name="monsba" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SpecialRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientAdress" Type="nvarchar" MaxLength="50" />
+    <Property Name="monsba" Type="nvarchar" MaxLength="50" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="des" Type="nvarchar(max)" />
+    <Property Name="date" Type="nvarchar" MaxLength="50" />
+    <Property Name="CoorId" Type="int" />
+  </EntityType>
+  <Association Name="FK__decoratio__CoorI__3C69FB99">
+    <End Role="coordinator" Type="Self.coordinator" Multiplicity="0..1" />
+    <End Role="decorations" Type="Self.decorations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="coordinator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="decorations">
+        <PropertyRef Name="CoorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Request__decoreI__440B1D61">
+    <End Role="decorations" Type="Self.decorations" Multiplicity="0..1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="decorations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="decoreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SpecialRe__CoorI__47DBAE45">
+    <End Role="coordinator" Type="Self.coordinator" Multiplicity="0..1" />
+    <End Role="SpecialRequest" Type="Self.SpecialRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="coordinator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialRequest">
+        <PropertyRef Name="CoorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="coordinator" EntityType="Self.coordinator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="decorations" EntityType="Self.decorations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpecialRequest" EntityType="Self.SpecialRequest" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__decoratio__CoorI__3C69FB99" Association="Self.FK__decoratio__CoorI__3C69FB99">
+      <End Role="coordinator" EntitySet="coordinator" />
+      <End Role="decorations" EntitySet="decorations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Request__decoreI__440B1D61" Association="Self.FK__Request__decoreI__440B1D61">
+      <End Role="decorations" EntitySet="decorations" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SpecialRe__CoorI__47DBAE45" Association="Self.FK__SpecialRe__CoorI__47DBAE45">
+      <End Role="coordinator" EntitySet="coordinator" />
+      <End Role="SpecialRequest" EntitySet="SpecialRequest" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

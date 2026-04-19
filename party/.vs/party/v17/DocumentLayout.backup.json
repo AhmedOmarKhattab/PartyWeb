@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\projects\\C# projects\\Core Projects\\Apis\\New folder (9)\\PartyWeb\\partyWeb\\party\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{81529F3D-E93D-4437-831D-B7AEB0B92E4A}|party\\party.csproj|d:\\projects\\c# projects\\core projects\\apis\\new folder (9)\\partyweb\\partyweb\\party\\party\\views\\shared\\adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81529F3D-E93D-4437-831D-B7AEB0B92E4A}|party\\party.csproj|solutionrelative:party\\views\\shared\\adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81529F3D-E93D-4437-831D-B7AEB0B92E4A}|party\\party.csproj|d:\\projects\\c# projects\\core projects\\apis\\new folder (9)\\partyweb\\partyweb\\party\\party\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81529F3D-E93D-4437-831D-B7AEB0B92E4A}|party\\party.csproj|solutionrelative:party\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81529F3D-E93D-4437-831D-B7AEB0B92E4A}|party\\party.csproj|d:\\projects\\c# projects\\core projects\\apis\\new folder (9)\\partyweb\\partyweb\\party\\party\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81529F3D-E93D-4437-831D-B7AEB0B92E4A}|party\\party.csproj|solutionrelative:party\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "adminLayout.cshtml",
+              "DocumentMoniker": "D:\\projects\\C# projects\\Core Projects\\Apis\\New folder (9)\\PartyWeb\\partyWeb\\party\\party\\Views\\Shared\\adminLayout.cshtml",
+              "RelativeDocumentMoniker": "party\\Views\\Shared\\adminLayout.cshtml",
+              "ToolTip": "D:\\projects\\C# projects\\Core Projects\\Apis\\New folder (9)\\PartyWeb\\partyWeb\\party\\party\\Views\\Shared\\adminLayout.cshtml",
+              "RelativeToolTip": "party\\Views\\Shared\\adminLayout.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAADwAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T14:09:04.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\projects\\C# projects\\Core Projects\\Apis\\New folder (9)\\PartyWeb\\partyWeb\\party\\party\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "party\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\projects\\C# projects\\Core Projects\\Apis\\New folder (9)\\PartyWeb\\partyWeb\\party\\party\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "party\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAD0AAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T14:08:15.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\projects\\C# projects\\Core Projects\\Apis\\New folder (9)\\PartyWeb\\partyWeb\\party\\party\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "party\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\projects\\C# projects\\Core Projects\\Apis\\New folder (9)\\PartyWeb\\partyWeb\\party\\party\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "party\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T14:07:01.443Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

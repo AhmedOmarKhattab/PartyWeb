@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="coordinator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="decorations" Relationship="Self.FK__decoratio__CoorI__3C69FB99" FromRole="coordinator" ToRole="decorations" />
+    <NavigationProperty Name="SpecialRequests" Relationship="Self.FK__SpecialRe__CoorI__47DBAE45" FromRole="coordinator" ToRole="SpecialRequest" />
+  </EntityType>
+  <EntityType Name="decoration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="decoreName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="des" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CoorId" Type="Int32" />
+    <Property Name="imageTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="coordinator" Relationship="Self.FK__decoratio__CoorI__3C69FB99" FromRole="decorations" ToRole="coordinator" />
+    <NavigationProperty Name="Requests" Relationship="Self.FK__Request__decoreI__440B1D61" FromRole="decorations" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClientPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClientAdress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="decoreId" Type="Int32" />
+    <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="monsba" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="decoration" Relationship="Self.FK__Request__decoreI__440B1D61" FromRole="Request" ToRole="decorations" />
+  </EntityType>
+  <EntityType Name="SpecialRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClientPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClientAdress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="monsba" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="des" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CoorId" Type="Int32" />
+    <NavigationProperty Name="coordinator" Relationship="Self.FK__SpecialRe__CoorI__47DBAE45" FromRole="SpecialRequest" ToRole="coordinator" />
+  </EntityType>
+  <Association Name="FK__decoratio__CoorI__3C69FB99">
+    <End Role="coordinator" Type="Self.coordinator" Multiplicity="0..1" />
+    <End Role="decorations" Type="Self.decoration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="coordinator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="decorations">
+        <PropertyRef Name="CoorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SpecialRe__CoorI__47DBAE45">
+    <End Role="coordinator" Type="Self.coordinator" Multiplicity="0..1" />
+    <End Role="SpecialRequest" Type="Self.SpecialRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="coordinator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialRequest">
+        <PropertyRef Name="CoorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Request__decoreI__440B1D61">
+    <End Role="decorations" Type="Self.decoration" Multiplicity="0..1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="decorations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="decoreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="coordinators" EntityType="Self.coordinator" />
+    <EntitySet Name="decorations" EntityType="Self.decoration" />
+    <EntitySet Name="Requests" EntityType="Self.Request" />
+    <EntitySet Name="SpecialRequests" EntityType="Self.SpecialRequest" />
+    <AssociationSet Name="FK__decoratio__CoorI__3C69FB99" Association="Self.FK__decoratio__CoorI__3C69FB99">
+      <End Role="coordinator" EntitySet="coordinators" />
+      <End Role="decorations" EntitySet="decorations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SpecialRe__CoorI__47DBAE45" Association="Self.FK__SpecialRe__CoorI__47DBAE45">
+      <End Role="coordinator" EntitySet="coordinators" />
+      <End Role="SpecialRequest" EntitySet="SpecialRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Request__decoreI__440B1D61" Association="Self.FK__Request__decoreI__440B1D61">
+      <End Role="decorations" EntitySet="decorations" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

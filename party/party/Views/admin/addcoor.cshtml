@@ -1,0 +1,45 @@
+﻿@model party.Models.coordinator
+@{
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+
+<br /><br /><br /><br />
+<hr />
+<div id="events" class="events-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-box">
+                    @using (Html.BeginForm("addcoor", "admin", FormMethod.Post, new { name = "sg", enctype = "multipart/form-data" }))
+                    {
+                        <form>
+                            @if (TempData["Message"] != null)
+                            {
+                                <div class="alert alert-danger">
+                                    <p style="color:red">@TempData["Message"]</p>
+                                </div>
+                            }
+                            <div class="mb-3">
+                                <h3 align="right">اسم المنسق</h3>
+                                <input name="name" dir="rtl" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <h3 align="right">الهاتف</h3>
+                                <input name="phone" dir="rtl" type="tel" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <h3 align="right">الصورة</h3>
+                                <input class="form-control" dir="ltr" type="file" name="imgfile" />
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

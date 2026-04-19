@@ -1,0 +1,68 @@
+﻿@model IEnumerable<party.Models.coordinator>
+@{
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+<br /><br /><br /><br />
+<hr />
+
+<div id="events" class="events-box">
+    <h1 style="text-align:center">تقرير المنسقين</h1>
+
+    <div class="container">
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-danger">
+                <p style="text-align:center">@TempData["Message"]</p>
+            </div>
+        }
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-box">
+                    <table class="table" border="5" dir="rtl">
+                        <tr>
+                            <th>
+                                اسم المنسق
+                            </th>
+                            <th>
+                                الهاتف
+                            </th>
+                            <th>
+                                الصورة
+                            </th>
+
+
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.phone)
+                                </td>
+                                <td>
+                                    <img width="100" src="@Url.Content(item.image)" alt="..." />
+                                </td>
+
+
+
+
+                                <td>
+                                    <a href="addDecorate?id=@item.Id" class="btn btn-outline-primary"> <h3>أضافة ديكورات</h3></a> |
+                                    <a href="DelCoor?id=@item.Id" class="btn btn-outline-primary"> <h3>حذف</h3></a>
+
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

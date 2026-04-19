@@ -1,0 +1,107 @@
+﻿@model IEnumerable<party.Models.SpecialRequest>
+@{
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+<br /><br /><br /><br />
+<hr />
+
+<div id="events" class="events-box">
+    <h1 style="text-align:center">الطلبات الخاصة</h1>
+
+    <div class="container">
+        <div class="row">
+          
+            <div class="col-lg-12">
+                @if (TempData["Message"] != null)
+                {
+                    <div class="alert alert-danger">
+                        <p style="text-align:center">@TempData["Message"]</p>
+                    </div>
+                }
+                <div class="title-box">
+                    @if (Model.Count() > 0)
+                    {
+                        <table class="table" dir="rtl" border="5">
+                            <tr>
+                                <th>
+                                    اسم العميل
+                                </th>
+                                <th>
+                                    هاتف العميل
+                                </th>
+
+                                <th>
+                                    المناسبة
+                                </th>
+                                <th>
+                                    الصورة
+                                </th>
+
+                                <th>
+                                    تاريخ المناسبة
+                                </th>
+                                <th>
+                                    اسم المنسق
+                                </th>
+                                <th>
+                                    هاتف المنسق
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ClientName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ClientPhone)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.monsba)
+                                    </td>
+                                    <td>
+                                        <img width="100" src="@Url.Content(item.image)" alt="..." />
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.date)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.coordinator.name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.coordinator.phone)
+                                    </td>
+                                    <td>
+                                        @*<button  class="btn btn-danger" onclick="showAlert(@item.coordinator.name,@item.coordinator.phone)">تاكيد الحجز</button>|*@
+
+                                        <button class="btn btn-danger" onclick="showAlert({ des:'@item.des', name:'@item.coordinator.name', phone: '@item.coordinator.phone'})">تاكيد الحجز</button>
+                                        <a href="~/admin/DelReq?id=@item.Id" class="btn btn-danger">الغاء الحجز</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    }
+                    else
+                    {
+                        <center>
+                            <h1>لا توجد بيانات</h1>
+                            <img src="~/img/1200px-No_red.svg.png" width="300" />
+                        </center>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showAlert(data) {
+        alert("وصف الديكور" + data.des + "تم تأكيد الحجز لـ " + data.name + "، رقم الهاتف: " + data.phone);
+    }
+</script>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+

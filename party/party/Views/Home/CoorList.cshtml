@@ -1,0 +1,47 @@
+﻿@model party.Models.allProject
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="home-slider">
+    <ul class="rslides">
+        <li><img src="~/Content/images/slider-01.jpg" alt=""></li>
+        <li><img src="~/Content/images/slider-02.jpg" alt=""></li>
+        <li><img src="~/Content/images/slider-03.jpg" alt=""></li>
+    </ul>
+    <div class="lbox-details">
+        <h1>Karlene Hoard  & Jonas Pare</h1>
+        <h2>
+            كارلن للمناسبات</h2>
+
+    </div>
+</div>
+<br /><br />
+<div id="events" class="events-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-box">
+                    <h2>عرض جميع القاعات</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.decorations)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="event-inner">
+                        <div class="event-img">
+                            <img height="200" width="300" src="@Url.Content(item.image)" alt="" />
+                        </div>
+                        <h2> @item.decoreName</h2>
+
+                        <h2>اسم المنسق : @item.coordinator.name</h2>
+                        <a href="~/Home/Decorationdet?id=@item.Id">عرض التفاصيل <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>

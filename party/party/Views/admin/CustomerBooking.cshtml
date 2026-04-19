@@ -1,0 +1,113 @@
+﻿@model IEnumerable<party.Models.Request>
+
+@{
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+<br /><br /><br /><br />
+<hr />
+
+<div id="events" class="events-box">
+    <h1 style="text-align:center">تقرير الحجوزات مع المنسقين</h1>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger">
+            <p style="text-align:center">@TempData["Message"]</p>
+        </div>
+    }
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-box">
+                    @if (Model.Count() > 0)
+                    {
+
+                        <table class="table" dir="rtl" border="3">
+                            <tr>
+                                <th>
+                                    اسم العميل
+                                </th>
+                                <th>
+                                    هاتف العميل
+                                </th>
+                                <th>
+                                    عنوان العميل
+                                </th>
+                                <th>
+                                    تاريخ المناسبة
+                                </th>
+
+                                <th>
+                                    اسم الديكور
+                                </th>
+
+                                <th>
+                                    اسم المنسق
+                                </th>
+                                <th>
+                                    صورة الديكور المطلوب
+
+                                </th>
+                                <th>
+                                    هاتف المنسق
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ClientName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ClientPhone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ClientAdress)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.date)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.decoration.decoreName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.decoration.coordinator.name)
+                                    </td>
+                                    <td>
+                                        <img class="img-fluid" src="@Url.Content(item.decoration.image)" width="100" alt="" />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.decoration.coordinator.phone)
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger" onclick="showAlert({  name:'@item.decoration.coordinator.name', phone: '@item.decoration.coordinator.phone'})">تاكيد الحجز</button>
+
+                                        <a href="~/admin/DelBook?id=@item.Id" class="btn btn-danger">الغاء الحجز</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    }
+                    else
+                    {
+
+                        <center>
+                            <h1>لا توجد بيانات</h1>
+                            <img src="~/img/1200px-No_red.svg.png" width="300" />
+                        </center>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function showAlert(data) {
+            alert( "تم تأكيد الحجز لـ " + data.name + "، رقم الهاتف: " + data.phone);
+        }
+    </script>
+</div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+

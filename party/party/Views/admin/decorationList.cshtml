@@ -1,0 +1,91 @@
+﻿@model IEnumerable<party.Models.decoration>
+
+@{
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+<br /><br /><br /><br />
+<hr />
+
+<div id="events" class="events-box">
+    <h1 style="text-align:center">تقرير الديكورات</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                @if (TempData["Message"] != null)
+                {
+                    <div class="alert alert-danger">
+                        <p style="text-align:center">@TempData["Message"]</p>
+                    </div>
+                }
+                <div class="title-box">
+                    @if (Model.Count() > 0)
+                    {
+                        <table class="table" dir="rtl" border="5">
+                            <tr>
+                                <th>
+                                    الديكور
+                                </th>
+                                <th>
+                                    الصورة الاولى
+                                </th>
+                                <th>
+                                    الصورة الثانية
+                                </th>
+
+                                <th>
+                                    التكلفة
+                                </th>
+
+                                <th>
+                                    اسم المنسق
+                                </th>
+                                <th>
+                                    رقم الهاتف
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.decoreName)
+                                    </td>
+                                    <td>
+                                        <img width="100" src="@Url.Content(item.image)" alt="..." />
+                                    </td>
+                                    <td>
+                                        <img width="100" src="@Url.Content(item.imageTwo)" alt="..." />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.cost)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.coordinator.name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.coordinator.phone)
+                                    </td>
+                                    <td>
+                                        <a href="~/admin/DelDecore?id=@item.Id" class="btn btn-danger">حذف الديكور</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    }
+                    else
+                    {
+                        <center>
+                            <h1>لا توجد بيانات</h1>
+                            <img src="~/img/1200px-No_red.svg.png" width="300" />
+                        </center>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
