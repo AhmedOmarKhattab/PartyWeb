@@ -58,14 +58,13 @@
     <div class="event-inner" style="background-color:lightblue">
         <div class="event-img">
             <!-- Place the image here -->
-            <img  width="100" src="@Url.Content(Model.decoration.coordinator.image)" alt="..." />
             <!-- End of image -->
             <div class="product-info">
                 <br /><br />
                 <h2>@Model.decoration.decoreName</h2>
                 <strong>السعر :@Model.decoration.cost</strong>
                 <h3>@Model.decoration.des</h3>
-                <strong>اسم المنسق :@Model.decoration.coordinator.name</strong>
+                <strong>مدير القاعة  :@Model.decoration.coordinator.name</strong>
             </div>
             <center>
                 <a href="~/Home/BookDecore?decoreId=@Model.decoration.Id" class="btn btn-danger">حجز القاعة</a>

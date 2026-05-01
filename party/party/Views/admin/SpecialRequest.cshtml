@@ -40,12 +40,12 @@
                                 <th>
                                     تاريخ المناسبة
                                 </th>
-                                <th>
+                                @*<th>
                                     اسم المنسق
-                                </th>
-                                <th>
+                                </th>*@
+                                @*<th>
                                     هاتف المنسق
-                                </th>
+                                </th>*@
                                 <th></th>
                             </tr>
 
@@ -69,12 +69,12 @@
                                     <td>
                                         @Html.DisplayFor(modelItem => item.date)
                                     </td>
-                                    <td>
+                                    @*<td>
                                         @Html.DisplayFor(modelItem => item.coordinator.name)
-                                    </td>
-                                    <td>
+                                    </td>*@
+                                    @*<td>
                                         @Html.DisplayFor(modelItem => item.coordinator.phone)
-                                    </td>
+                                    </td>*@
                                     <td>
                                         @*<button  class="btn btn-danger" onclick="showAlert(@item.coordinator.name,@item.coordinator.phone)">تاكيد الحجز</button>|*@
 

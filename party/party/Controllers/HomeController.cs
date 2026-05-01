@@ -82,7 +82,10 @@ namespace party.Controllers
                     n.monsba = b.monsba;
                     n.image = image;
                     n.des = b.des;
-                    n.CoorId = b.coordinatorObject.Id;
+                    //549875
+                   // n.CoorId = b.coordinatorObject.Id;
+                    n.CoorId = 549875;
+
                     var coor = db.coordinators.Where(x => x.Id == b.coordinatorObject.Id).SingleOrDefault();
 
                     db.SpecialRequests.Add(n);
