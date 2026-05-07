@@ -96,9 +96,13 @@ namespace party.Controllers
         {
             return View(db.decorations.ToList());
         }
-        public ActionResult CustomerBooking()
+        public ActionResult CustomerBooking(int? coorId)
         {
-            return View(db.Requests.ToList());
+            ViewBag.Coors=db.decorations.ToList();
+            return View(db.Requests
+                .Where(c => !coorId.HasValue || c.decoreId == coorId)
+                .OrderByDescending(c=>c.Id)
+                .ToList());
         }
         public ActionResult SpecialRequest()
         {
